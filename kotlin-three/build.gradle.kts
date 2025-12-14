@@ -4,8 +4,8 @@ plugins {
 
 dependencies {
     webMainApi(projects.kotlinJs)
-    webMainApi(projects.kotlinTypescript)
     webMainApi(projects.kotlinWeb)
+    webMainApi(projects.kotlinBrowser)
 
     webMainApi(npm(jspkg.types.three))
 

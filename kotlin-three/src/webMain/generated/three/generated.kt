@@ -2,6 +2,9 @@
 
 package three
 
+import three.src.nodes.core.Node
+import three.src.renderers.shaders.IUniform
+
 external interface ColorNAMES {
 var aliceblue: Double /* 15792383 */
 var antiquewhite: Double /* 16444375 */
