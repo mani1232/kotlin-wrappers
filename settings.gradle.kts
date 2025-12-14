@@ -262,3 +262,8 @@ include("kotlin-yaml")
 include("kotlin-wrappers-bom")
 
 include("kotlin-wrappers-catalog")
+
+// Kotlin/JS: Threejs wrapper
+include("kotlin-three")
+
+includeKarakum("kotlin-three")
