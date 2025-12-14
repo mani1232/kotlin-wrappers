@@ -4,6 +4,27 @@
 
 package three.src.core
 
+import js.objects.Record
+import three.src.animation.AnimationClip
+import three.src.animation.AnimationClipJSON
+import three.src.cameras.Camera
+import three.src.extras.core.ShapeJSON
+import three.src.materials.Material
+import three.src.materials.MaterialJSON
+import three.src.math.Euler
+import three.src.math.Matrix3
+import three.src.math.Matrix4
+import three.src.math.Quaternion
+import three.src.math.Vector3
+import three.src.objects.Group
+import three.src.objects.SkeletonJSON
+import three.src.renderers.WebGLRenderer
+import three.src.scenes.Scene
+import three.src.textures.SourceJSON
+import three.src.textures.TextureJSON
+import kotlin.js.JsAny
+import kotlin.js.JsString
+
 // unhandled import: AnimationClip from "../animation/AnimationClip.js"
 // unhandled import: AnimationClipJSON from "../animation/AnimationClip.js"
 // unhandled import: Camera from "../cameras/Camera.js"
@@ -93,17 +114,17 @@ var `object`: Object3DJSONObject
 }
 
 external interface JSONMeta {
-var geometries: Record<String, BufferGeometryJSON>
-var materials: Record<String, MaterialJSON>
-var textures: Record<String, TextureJSON>
-var images: Record<String, SourceJSON>
-var shapes: Record<String, ShapeJSON>
-var skeletons: Record<String, SkeletonJSON>
-var animations: Record<String, AnimationClipJSON>
-var nodes: Record<String, Any?>
+var geometries: Record<JsString, BufferGeometryJSON>
+var materials: Record<JsString, MaterialJSON>
+var textures: Record<JsString, TextureJSON>
+var images: Record<JsString, SourceJSON>
+var shapes: Record<JsString, ShapeJSON>
+var skeletons: Record<JsString, SkeletonJSON>
+var animations: Record<JsString, AnimationClipJSON>
+var nodes: Record<JsString, JsAny?>
 }
 
-external interface Object3DEventMap {
+external interface Object3DEventMap: JsAny {
 /**
      * Fires when the object has been added to its parent object.
      */
@@ -129,7 +150,7 @@ var childremoved: Object3DEventMapChildremoved
  * @see {@link https://threejs.org/docs/index.html#api/en/core/Object3D | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js | Source}
  */
-external class Object3D<TEventMap : Object3DEventMap /* default is Object3DEventMap */> : EventDispatcher<TEventMap> {
+external class Object3D<TEventMap : Object3DEventMap /* default is Object3DEventMap */> : EventDispatcher<TEventMap>, JsAny {
 /**
      * This creates a new {@link Object3D} object.
      */
@@ -283,7 +304,7 @@ var animations: js.array.ReadonlyArray<AnimationClip>
      * @remarks It should not hold references to _functions_ as these **will not** be cloned.
      * @default `{}`
      */
-var userData: Record<String, Any?>
+var userData: Record<JsString, JsAny?>
 /**
      * Custom depth material to be used when rendering to the depth map.
      * @remarks Can only be used in context of meshes.

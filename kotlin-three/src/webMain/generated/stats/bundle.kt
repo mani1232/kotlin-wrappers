@@ -36,7 +36,7 @@ fun update(value: Double, maxValue: Double): Unit
 }
 }
 
-external object Stats {
+external object OldStats {
 class Panel {
 constructor (name: String, foregroundColor: String, backgroundColor: String)
 var dom: HTMLCanvasElement

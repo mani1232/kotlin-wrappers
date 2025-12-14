@@ -3,6 +3,9 @@
 package three
 
 import three.src.nodes.core.Node
+import three.src.nodes.tsl.ConstructedNode
+import three.src.nodes.tsl.GetPossibleScopes
+import three.src.nodes.tsl.NodeObjectOption
 import three.src.renderers.shaders.IUniform
 
 external interface ColorNAMES {

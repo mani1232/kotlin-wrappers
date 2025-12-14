@@ -4,6 +4,9 @@
 
 package three.src.cameras
 
+import three.src.core.Object3D
+import kotlin.js.JsAny
+
 // unhandled import: CoordinateSystem from "../constants.js"
 // unhandled import: Layers from "../core/Layers.js"
 // unhandled import: Object3D from "../core/Object3D.js"
@@ -30,7 +33,7 @@ package three.src.cameras
  * @see {@link https://threejs.org/docs/index.html#api/en/cameras/Camera | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/cameras/Camera.js | Source}
  */
-external class Camera : Object3D {
+external class Camera : Object3D, JsAny {
 /**
      * @remarks
      * Note that this class is not intended to be called directly; you probably want a

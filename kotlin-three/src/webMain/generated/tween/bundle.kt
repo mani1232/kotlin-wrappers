@@ -4,7 +4,11 @@
 
 package tween
 
+import js.core.JsDouble
+import js.objects.Record
+import kotlin.js.JsAny
 import kotlin.js.JsModule
+import kotlin.js.JsString
 import kotlin.js.definedExternally
 
 typealias EasingFunction = (amount: Double) -> Double
@@ -23,12 +27,12 @@ external val Easing: Readonly<Temp0>
 /**
  *
  */
-typealias InterpolationFunction = (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
+typealias InterpolationFunction = (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
 
 /**
  *
  */
-external val Interpolation: Interpolation
+external val interpolation: Interpolation
 
 /**
  * Tween.js - Licensed under the MIT license
@@ -38,7 +42,7 @@ external val Interpolation: Interpolation
  * See https://github.com/tweenjs/tween.js/graphs/contributors for the full list of contributors.
  * Thank you all, you're awesome!
  */
-external class Tween<T : UnknownProps /* default is Any? */> {
+external class Tween<T : JsAny? /* default is Any? */>: JsAny {
 /**
      * @param object - The object whose properties this Tween will animate.
      * @param group - The object whose properties this Tween will animate.
@@ -85,7 +89,7 @@ fun repeatDelay(amount: Double = definedExternally): Unit /* this */
 fun yoyo(yoyo: Boolean = definedExternally): Unit /* this */
 fun easing(easingFunction: EasingFunction = definedExternally): Unit /* this */
 fun interpolation(interpolationFunction: InterpolationFunction = definedExternally): Unit /* this */
-fun chain(vararg tweens: Tween<Any?>): Unit /* this */
+fun chain(vararg tweens: Tween<T?>): Unit /* this */
 fun onStart(callback: (`object`: T) -> Unit = definedExternally): Unit /* this */
 fun onEveryStart(callback: (`object`: T) -> Unit = definedExternally): Unit /* this */
 fun onUpdate(callback: (`object`: T, elapsed: Double) -> Unit = definedExternally): Unit /* this */
@@ -107,7 +111,7 @@ var autoStartOnUpdate: Boolean
 }
 }
 
-typealias UnknownProps = Record<String, Any?>
+typealias UnknownProps = Record<JsString, JsAny?>
 
 /**
  * Controlling groups of tweens
@@ -116,11 +120,11 @@ typealias UnknownProps = Record<String, Any?>
  * In these cases, you may want to create your own smaller groups of tween
  */
 external class Group {
-constructor (vararg tweens: Tween)
-fun getAll(): Array<Tween>
+constructor (vararg tweens: Tween<JsAny>)
+fun getAll(): Array<Tween<JsAny>>
 fun removeAll(): Unit
-fun add(vararg tweens: Tween): Unit
-fun remove(vararg tweens: Tween): Unit
+fun add(vararg tweens: Tween<JsAny>): Unit
+fun remove(vararg tweens: Tween<JsAny>): Unit
 /** Return true if all tweens in the group are not paused or playing. */
 fun allStopped(): Boolean
 fun update(time: Double = definedExternally): Unit
@@ -197,7 +201,7 @@ external val nextId: () -> Double
  * })
  * ```
  */
-external val getAll: () -> js.array.ReadonlyArray<Tween<Any?>>
+external val getAll: () -> js.array.ReadonlyArray<Tween<JsAny?>>
 
 /**
  * @deprecated The global TWEEN Group will be removed in a following major
@@ -399,7 +403,7 @@ external val exports: Exports
 
 /* export { Easing, Group, Interpolation, Sequence, Tween, VERSION, add, exports as default, getAll, nextId, now, remove, removeAll, update }; */
 external interface Temp0 {
-var Linear: Readonly<Temp1>
+var Linear: ReadOnly<Temp1>
 var Quadratic: Readonly<EasingFunctionGroup>
 var Cubic: Readonly<EasingFunctionGroup>
 var Quartic: Readonly<EasingFunctionGroup>
@@ -421,9 +425,9 @@ var CatmullRom: (p0: Double, p1: Double, p2: Double, p3: Double, t: Double) -> D
 }
 
 external interface Interpolation {
-var Linear: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
-var Bezier: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
-var CatmullRom: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
+var Linear: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
+var Bezier: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
+var CatmullRom: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
 var Utils: Temp2
 }
 
@@ -455,9 +459,9 @@ var CatmullRom: (p0: Double, p1: Double, p2: Double, p3: Double, t: Double) -> D
 }
 
 external interface Temp5 {
-var Linear: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
-var Bezier: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
-var CatmullRom: (v: js.array.ReadonlyArray<Double>, k: Double) -> Double
+var Linear: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
+var Bezier: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
+var CatmullRom: (v: js.array.ReadonlyArray<JsDouble>, k: Double) -> Double
 var Utils: Temp6
 }
 

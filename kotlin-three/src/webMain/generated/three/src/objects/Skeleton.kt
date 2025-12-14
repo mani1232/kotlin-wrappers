@@ -4,6 +4,11 @@
 
 package three.src.objects
 
+import three.src.math.Matrix4
+import kotlin.js.JsAny
+import kotlin.js.JsString
+import kotlin.js.definedExternally
+
 // unhandled import: Matrix4 from "../math/Matrix4.js"
 // unhandled import: Matrix4Tuple from "../math/Matrix4.js"
 // unhandled import: DataTexture from "../textures/DataTexture.js"
@@ -15,10 +20,10 @@ package three.src.objects
 
 
 
-external interface SkeletonJSON {
+external interface SkeletonJSON: JsAny {
 var metadata: SkeletonJSONMetadata
-var bones: js.array.ReadonlyArray<String>
-var boneInverses: js.array.ReadonlyArray<Matrix4Tuple>
+var bones: js.array.ReadonlyArray<JsString>
+var boneInverses: js.array.ReadonlyArray<three.src.math.Matrix4Tuple>
 var uuid: String
 }
 

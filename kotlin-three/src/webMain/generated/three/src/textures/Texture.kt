@@ -4,6 +4,24 @@
 
 package three.src.textures
 
+import js.objects.Record
+import three.src.AnyMapping
+import three.src.AnyPixelFormat
+import three.src.MagnificationTextureFilter
+import three.src.Mapping
+import three.src.MinificationTextureFilter
+import three.src.PixelFormat
+import three.src.PixelFormatGPU
+import three.src.TextureDataType
+import three.src.Wrapping
+import three.src.core.EventDispatcher
+import three.src.core.RenderTarget
+import three.src.math.Matrix3
+import three.src.math.Vector2
+import kotlin.js.JsAny
+import kotlin.js.JsString
+import kotlin.js.definedExternally
+
 // unhandled import: AnyMapping from "../constants.js"
 // unhandled import: AnyPixelFormat from "../constants.js"
 // unhandled import: ColorSpace from "../constants.js"
@@ -107,7 +125,7 @@ external interface OffscreenCanvas : EventTarget {
  * @see {@link https://threejs.org/docs/index.html#api/en/textures/Texture | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/Textures/Texture.js | Source}
  */
-external class Texture<TImage /* default is Any? */> : EventDispatcher<Temp6> {
+external class Texture<TImage /* default is Any? */> : EventDispatcher<Temp6>, JsAny {
 /**
      * @deprecated
      */
@@ -380,7 +398,7 @@ var isArrayTexture: Boolean
      * @remarks It should not hold references to functions as these will not be cloned.
      * @defaultValue `{}`
      */
-var userData: Record<String, Any?>
+var userData: Record<JsString, JsAny?>
 /**
      * This can be used to only update a subregion or specific rows of the texture (for example, just the
      * first 3 rows). Use the `addUpdateRange()` function to add ranges to this array.
@@ -498,8 +516,8 @@ var type: String
 var generator: String
 }
 
-external interface Temp6 {
-var dispose: Any
+external interface Temp6: JsAny {
+var dispose: JsAny
 }
 
 external interface Temp7 {
